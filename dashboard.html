@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RPL Mapping System</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="container">
+<h1>Dashboard</h1>
+<div class="grid-3">
+  <div class="card">
+    <div class="label">Institutions</div>
+    <div id="kpi-institutions" style="font-size:2rem;font-weight:700">–</div>
+  </div>
+  <div class="card">
+    <div class="label">Total Mappings</div>
+    <div id="kpi-mappings" style="font-size:2rem;font-weight:700">–</div>
+    <div class="subtle" id="kpi-by-type"></div>
+  </div>
+  <div class="card">
+    <div class="label">Pending Requests</div>
+    <div id="kpi-pending" style="font-size:2rem;font-weight:700">–</div>
+  </div>
+</div>
+
+<h2 class="section-title">Conflicts (Mock)</h2>
+<div class="card">
+  <p class="subtle">Example conflict rule: Same institution + subject code → different KOI subject.</p>
+  <div class="table-wrap">
+    <table id="conflicts-table">
+      <thead><tr><th>Institution</th><th>Subject Code</th><th>Existing KOI</th><th>Incoming KOI</th><th>Action</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+<script src="js/dashboard.js"></script>
+</main>
+  <footer id="site-footer"></footer>
+  <script src="js/shared.js"></script>
+</body>
+</html>

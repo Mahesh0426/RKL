@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RPL Mapping System</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="container">
+<h1>Mapping Requests</h1>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>Submit a Request (Demo)</h3>
+    <p class="subtle">This form stores requests in your browser (localStorage) to simulate submission.</p>
+    <form id="request-form">
+      <div class="grid-2">
+        <label>Institution<br/><input class="input" name="institution" required></label>
+        <label>Subject Code<br/><input class="input" name="subject_code" required></label>
+      </div>
+      <label>Subject Name<br/><input class="input" name="subject_name" required></label>
+      <label>Outline URL<br/><input class="input" name="outline_url" type="url" required></label>
+      <label>Proposed RPL type (optional)<br/>
+        <select name="rpl_type">
+          <option value="">—</option>
+          <option>KOI Subject</option>
+          <option>IT Elective</option>
+          <option>General Elective</option>
+        </select>
+      </label>
+      <label>Assign HOP/HOS<br/>
+        <select name="assigned_hop_id" required id="hop-select"></select>
+      </label>
+      <button class="btn" type="submit">Submit Request</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h3>Requests</h3>
+    <div class="controls">
+      <select id="status-filter">
+        <option value="">All Statuses</option>
+        <option>Pending</option>
+        <option>Approved</option>
+        <option>Completed</option>
+        <option>Rejected</option>
+      </select>
+    </div>
+    <div class="table-wrap">
+      <table id="requests-table">
+        <thead><tr><th>ID</th><th>Institution</th><th>Subject</th><th>Outline</th><th>Status</th><th>Assigned HOP</th><th>Created</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="js/requests.js"></script>
+</main>
+  <footer id="site-footer"></footer>
+  <script src="js/shared.js"></script>
+</body>
+</html>

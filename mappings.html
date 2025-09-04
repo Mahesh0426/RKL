@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RPL Mapping System</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="container">
+<h1>Mappings</h1>
+
+<div class="controls">
+  <input class="input" id="filter-text" placeholder="Search subject / code / institution"/>
+  <select id="filter-rpl">
+    <option value="">RPL Type (All)</option>
+    <option>KOI Subject</option>
+    <option>IT Elective</option>
+    <option>General Elective</option>
+  </select>
+  <button class="btn" id="btn-export">Export CSV</button>
+</div>
+
+<div class="table-wrap">
+  <table id="mappings-table">
+    <thead>
+      <tr>
+        <th>Institution</th>
+        <th>Subject Code</th>
+        <th>Subject Name</th>
+        <th>KOI Subject</th>
+        <th>RPL Type</th>
+        <th>Comments</th>
+        <th>Outline</th>
+        <th>Added / Modified</th>
+        <th>By</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<script src="js/mappings.js"></script>
+</main>
+  <footer id="site-footer"></footer>
+  <script src="js/shared.js"></script>
+</body>
+</html>
