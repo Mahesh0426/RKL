@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sign Up - RPL Mapping System</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script defer src="js/auth.js"></script>
+  </head>
+  <body>
+    <div class="auth-container">
+      <h2>Create Account</h2>
+      <form onsubmit="signupUser(event)">
+        <label>Name:</label>
+        <input type="text" id="signupName" required />
+        <label>Email:</label>
+        <input type="email" id="signupEmail" required />
+        <label>Password:</label>
+        <input type="password" id="signupPassword" required />
+        <label>Role:</label>
+        <select id="signupRole" required>
+          <option value="Admin">Admin</option>
+          <option value="HOP/HOS">HOP / HOS</option>
+          <option value="Admissions">Admissions</option>
+          <option value="Marketing">Marketing</option>
+          <option value="Senior Mgmt">Senior Mgmt</option>
+        </select>
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+  </body>
+</html>

@@ -1,26 +1,30 @@
-
-(function(){
+(function () {
   // Theme
   const root = document.documentElement;
-  const saved = localStorage.getItem('theme') || 'dark';
-  if (saved === 'light') root.classList.add('light');
+  const saved = localStorage.getItem("theme") || "dark";
+  if (saved === "light") root.classList.add("light");
 
-  function toggleTheme(){
-    root.classList.toggle('light');
-    localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+  function toggleTheme() {
+    root.classList.toggle("light");
+    localStorage.setItem(
+      "theme",
+      root.classList.contains("light") ? "light" : "dark"
+    );
   }
 
   // Header/Footer Injection
-  const header = document.getElementById('site-header');
-  const footer = document.getElementById('site-footer');
+  const header = document.getElementById("site-header");
+  const footer = document.getElementById("site-footer");
 
   const nav = [
-    { href: 'index.html', label: 'Home' },
-    { href: 'dashboard.html', label: 'Dashboard' },
-    { href: 'mappings.html', label: 'Mappings' },
-    { href: 'requests.html', label: 'Requests' },
-    { href: 'users.html', label: 'Users' },
-    { href: 'contact.html', label: 'Contact' },
+    { href: "index.html", label: "Home" },
+    { href: "dashboard.html", label: "Dashboard" },
+    { href: "mappings.html", label: "Mappings" },
+    { href: "requests.html", label: "Requests" },
+    { href: "users.html", label: "Users" },
+    { href: "contact.html", label: "Contact" },
+    { href: "login.html", label: "Login" },
+    { href: "signup.html", label: "Sign Up" },
   ];
 
   function navHTML(activePath) {
@@ -29,7 +33,14 @@
         <div class="navbar-inner">
           <a href="index.html" class="brand"><img src="assets/logo.svg" alt="Logo"/>RPL Mapping System</a>
           <nav class="nav">
-            ${nav.map(n => `<a href="${n.href}" class="${activePath.endsWith(n.href) ? 'active' : ''}">${n.label}</a>`).join('')}
+            ${nav
+              .map(
+                (n) =>
+                  `<a href="${n.href}" class="${
+                    activePath.endsWith(n.href) ? "active" : ""
+                  }">${n.label}</a>`
+              )
+              .join("")}
             <button class="toggle" id="theme-toggle" title="Toggle theme">🌗 Theme</button>
           </nav>
         </div>
@@ -51,19 +62,23 @@
     `;
   }
 
-  document.addEventListener('click', (e)=>{
-    if (e.target && e.target.id === 'theme-toggle') toggleTheme();
+  document.addEventListener("click", (e) => {
+    if (e.target && e.target.id === "theme-toggle") toggleTheme();
   });
 
   // Utility helpers
-  window.$ = (sel, root=document) => root.querySelector(sel);
-  window.$$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+  window.$ = (sel, root = document) => root.querySelector(sel);
+  window.$$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   window.formatDate = (iso) => new Date(iso).toLocaleDateString();
   window.downloadCSV = (filename, rows) => {
-    const csv = rows.map(r => r.map(v => `"${String(v).replaceAll('"','""')}"`).join(',')).join('\n');
-    const blob = new Blob([csv], {type: 'text/csv;charset=utf-8;'});
+    const csv = rows
+      .map((r) =>
+        r.map((v) => `"${String(v).replaceAll('"', '""')}"`).join(",")
+      )
+      .join("\n");
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
+    const a = document.createElement("a");
     a.href = url;
     a.download = filename;
     a.click();
